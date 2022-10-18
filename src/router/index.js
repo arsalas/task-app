@@ -18,4 +18,6 @@ const router = createRouter({
     routes
 })
 
+console.log('router: ', import.meta.env.BASE_URL)
+
 export default router;
