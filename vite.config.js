@@ -16,4 +16,7 @@ export default defineConfig({
             },
         }
     },
+    server: {
+        base: process.env.NODE_ENV === 'production' ? '/task-app/' : '/',
+    }
 })
