@@ -1,3 +1,4 @@
+import { nextTick } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
@@ -22,7 +23,8 @@ const router = createRouter({
 
 router.beforeEach((to, from) => {
     console.log(to, from)
-    return false
+    nextTick()
+    return true
 })
 
 
