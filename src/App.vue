@@ -16,6 +16,7 @@ import { login, newTask } from './api'
 
 onMounted(async () => {
     const id = await login('alberto.ramirez@ironhack.com', '1234567');
+    console.log(id)
     // newTask({
     //     user_id: id,
     //     title: 'Titulo',
