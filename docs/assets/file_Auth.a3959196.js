@@ -1,0 +1,1 @@
+import{_ as o}from"./file__plugin-vue_export-helper.e718e6fb.js";import{z as t,o as s,e as _,f as a,m as c}from"./file_index.285f0698.js";const n={},r={class:"auth-container"},d={class:"auth-box box"};function i(u,p){const e=t("router-view");return s(),_("div",r,[a("div",d,[c(e)])])}const f=o(n,[["render",i],["__scopeId","data-v-8d4a38b3"]]);export{f as default};
