@@ -1,6 +1,6 @@
 <template>
-    <h1 class="title has-text-centered">INICIAR SESION</h1>
-    <form @submit.prevent="submitLogin">
+    <h1 class="title has-text-centered">REGISTRO</h1>
+    <form @submit.prevent="submitSingin">
         <div class="field">
             <div class="control has-icons-left">
                 <input v-model.trim="formValues.email" class="input" type="email" placeholder="correo" required>
@@ -26,14 +26,9 @@
             <button type="submit" class="button is-primary is-fullwidth">Enviar</button>
         </div>
     </form>
-    <article v-if="formValues.haveErrors" class="message is-danger mt-3">
-        <div class="message-body">
-            Correo o password incorrectos
-        </div>
-    </article>
     <hr>
     <div class="has-text-centered">
-        No tienes una cuenta, <router-link class="has-text-weight-semibold" :to="{ name: 'signin' }"> Registrate
+        Ya tienes una cuenta, <router-link class="has-text-weight-semibold" :to="{ name: 'login' }">Inicia sesion
         </router-link>
     </div>
 </template>
@@ -41,7 +36,7 @@
 import { onMounted } from 'vue';
 import { useAuth } from '../composables/auth/useAuth';
 
-const { formValues, togglePass, submitLogin, redirect } = useAuth()
+const { formValues, togglePass, submitSingin, redirect } = useAuth()
 
 onMounted(() => {
     redirect()

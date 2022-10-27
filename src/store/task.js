@@ -1,37 +1,58 @@
 import { defineStore } from 'pinia'
-import { updateTask } from '../api'
 
 export const useTaskStore = defineStore('task', {
-    // arrow function recommended for full type inference
-    state: () => {
-        return {
-            // all these properties will have their type inferred automatically
-            // Guardaremos los task que nos de supabase
-            tasks: []
-        }
-    },
+    state: () => ({
+        // Guardaremos los task que nos de supabase
+        tasks: []
+    }),
     actions: {
 
-        setTask() {
-            //TODO guardar en el stado las task que nos de supabase
+        /**
+         * Asigna el valor de las tasks al store
+         * @param {object[]} tasks 
+         */
+        setTask(tasks) {
+            this.tasks = tasks
         },
 
-        updateTask(id, task) {
-            // TODO modificar el estado de la task
-            // Encontrar el indice de la task con ese id y cambiar su contenido con task
+        /**
+         * Marca una task como completada
+         * @param {number} id 
+         */
+        completeTask(id) {
+            const task = this.tasks.find(task => task.id == id)
+            task.is_completed = true;
         },
 
+        /**
+         * Marca una task como pendiente
+         * @param {number} id 
+         */
+        incompleteTask(id) {
+            const task = this.tasks.find(task => task.id == id)
+            task.is_completed = false;
+        },
+
+        /**
+         * Actualiza el valor de una task por id
+         * @param {number} id 
+         * @param {object} payload 
+         */
+        updateTask(id, payload) {
+            const i = this.tasks.findIndex(task => task.id == id)
+            this.tasks[i] = {
+                ...this.tasks[i],
+                ...payload
+            }
+        },
+
+        /**
+         * Borra una task por id
+         * @param {number} id 
+         */
         deleteTask(id) {
-            // TODO modificar el estado borrando esa task
-            // Encontramos el indice de ese id y eliminamos ese indice de la array
-        },
-
-        addTask(task) {
-            // TODO modificar el estado de task haciendo un push de la task
-            // Comprobar que tenemos el id al insertar el registro, en caso de no tenerlo tendriamos que hacer el getTask
+            const i = this.tasks.findIndex(task => task.id == id)
+            this.tasks.splice(i, 1);
         }
-
-
-
     }
 })

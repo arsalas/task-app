@@ -1,0 +1,71 @@
+@charset "utf-8";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css";
+
+
+// Import a Google Font
+
+//COLORS
+$primary: #1778f2;
+$danger: #D51F06;
+
+//PROGRESS
+$progress-bar-background-color: var(--bg-secondary);
+
+//TABS
+$tabs-toggle-link-active-background-color: $primary;
+$tabs-toggle-link-active-border-color: $primary;
+$tabs-toggle-link-hover-background-color: var(--bg-secondary);
+$tabs-toggle-link-hover-border-color: var(--bg-secondary);
+$tabs-toggle-link-border-color: var(--text-secondary);
+$tabs-link-color: var(--text-secondary);
+$tabs-link-hover-color: var(--text-color);
+
+//INPUTS
+$input-color: var(--text-color);
+$input-background-color: var(--bg-color);
+$input-border-color: var(--bg-color);
+$input-hover-color: var(--text-secondary);
+$input-hover-border-color: var(--text-secondary);
+$input-icon-color: var(--text-secondary);
+$input-icon-active-color: var(--text-color);
+
+//BOX
+$box-color: var(--text-color);
+$box-background-color: var(--bg-secondary);
+
+//TITLE
+$title-color: var(--text-color);
+$subtitle-color: var(--text-secondary);
+
+//LINK
+$link-hover: $primary;
+
+// 4. Setup your Custom Colors
+// $linkedin: #0077b5;
+// $linkedin-invert: findColorInvert($linkedin);
+// $twitter: #55acee;
+// $twitter-invert: findColorInvert($twitter);
+// $github: #333;
+// $github-invert: findColorInvert($github);
+
+// $addColors: (
+//   "twitter":($twitter, $twitter-invert),
+//   "linkedin": ($linkedin, $linkedin-invert),
+//   "github": ($github, $github-invert)
+// );
+// @import "../node_modules/bulma/sass/utilities/derived-variables";
+// $colors: map-merge($colors, $addColors);
+
+// Import only what you need from Bulma
+@import "../node_modules/bulma/sass/utilities/_all.sass";
+@import "../node_modules/bulma/sass/base/_all.sass";
+@import "../node_modules/bulma/sass/elements/button.sass";
+@import "../node_modules/bulma/sass/elements/container.sass";
+@import "../node_modules/bulma/sass/elements/title.sass";
+@import "../node_modules/bulma/sass/form/_all.sass";
+@import "../node_modules/bulma/sass/components/navbar.sass";
+@import "../node_modules/bulma/sass/layout/hero.sass";
+@import "../node_modules/bulma/sass/layout/section.sass";
+@import "bulma/bulma.sass";
+
+@import './theme.scss';

@@ -1,34 +1,48 @@
-import { nextTick } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 const routes = [
     {
         path: '/',
-        name: 'home',
-        component: () => import('../views/Home.vue')
+        name: 'tasks',
+        component: () => import('../views/Tasks.vue')
     },
-
     {
-        path: '/login',
-        name: 'login',
-        component: () => import('../views/Login.vue')
+        path: '/auth',
+        name: 'auth',
+        component: () => import('../layouts/Auth.vue'),
+        redirect: { name: 'login' },
+        children: [
+            {
+                path: 'log-in',
+                name: 'login',
+                component: () => import('../views/Login.vue')
+            },
+            {
+                path: 'sign-in',
+                name: 'signin',
+                component: () => import('../views/Signin.vue')
+            },
+
+        ]
+    },
+    {
+        path: '/confirm-email',
+        name: 'confirm',
+        component: () => import('../layouts/ConfirmEmail.vue')
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        name: 'error',
+        component: () => import('../layouts/404.vue')
     },
 ]
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory(import.meta.env.BASE_URL),
     routes,
-    
-
 })
 
-// router.beforeEach((to, from) => {
-//     console.log(to, from)
-//     nextTick()
-//     return true
-// })
 
 
-console.log('router: ', import.meta.env.BASE_URL)
 
 export default router;

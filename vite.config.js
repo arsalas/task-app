@@ -6,7 +6,6 @@ export default defineConfig({
     plugins: [vue()],
     base: process.env.NODE_ENV === 'production' ? '/task-app/' : '/',
     build: {
-
         outDir: 'docs',
         rollupOptions: {
             output: {
