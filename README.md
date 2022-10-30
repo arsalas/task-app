@@ -3,11 +3,15 @@
 ## Install
 ```sh
 yarn
+o
+npm install
 ```
 
 ## Run
 ```sh
 yarn dev
+o
+npm run dev
 ```
 
 ## Description 
